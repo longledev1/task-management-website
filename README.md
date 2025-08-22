@@ -1,12 +1,19 @@
-# React + Vite
+# 📝 Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A feature-rich **Todo Management App** built with **ReactJS**.  
+This project allows users to create, update, delete, and organize tasks efficiently with advanced filters and sorting options.  
 
-Currently, two official plugins are available:
+## 🚀 Features
+- ✨ **CRUD operations** (Create, Read, Update, Delete todos)
+- 🔍 **Filter by name**
+- 📂 **Filter by category**
+- 🏷️ **Filter by tags**
+- ↕️ **Sort todos** (by importance, completion, etc.)
+- ✅ Mark as completed / important
+- 📱 Responsive design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+- ⚛️ **ReactJS** (Hooks, useState, useEffect)
+- 🎨 **CSS** 
+- 🔔 **React Toastify** (notifications)
+- 🔑 `crypto.randomUUID()` for unique IDs
