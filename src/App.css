@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
+
+.container {
+  background-color: #f0f0f0;
+  height: 100vh;
+  padding: 30px;
+  font-family: "Cabin", sans-serif;
+}
+
+.container h1 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.input-task,
+.todo-item {
+  width: 100%;
+  border: none;
+  background-color: white;
+  padding: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-weight: normal;
+  color: #616161;
+  font-size: 16px;
+}
+.input-task {
+  padding: 12px;
+}
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-item:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.todo-item.open {
+  background-color: #0f548c;
+}
+
+.todo-item.open p {
+  color: white;
+}
