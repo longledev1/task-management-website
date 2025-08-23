@@ -43,3 +43,12 @@
   background: #0f548c;
   border-radius: 50%; /* chấm tròn ở giữa */
 }
+
+.trash-icon {
+  font-size: 20px;
+  color: #e0e0e0;
+}
+
+.trash-icon:hover {
+  color: #0f548c;
+}

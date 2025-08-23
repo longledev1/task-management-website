@@ -1,17 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
 
+/* Container */
+
 .container {
-  background-color: #f0f0f0;
-  height: 100vh;
-  padding: 30px;
+  display: flex;
   font-family: "Cabin", sans-serif;
 }
 
-.container h1 {
+/* Main content */
+
+.main-content {
+  background-color: #f0f0f0;
+  height: 100vh;
+  padding: 30px;
+  flex: 1;
+}
+
+.main-content h1 {
   margin-bottom: 10px;
   font-weight: 600;
   font-size: 24px;
 }
+
+/* Input task */
 
 .input-task,
 .todo-item {
@@ -29,6 +40,9 @@
 .input-task {
   padding: 12px;
 }
+
+/* Todo items */
+
 .todo-item {
   display: flex;
   justify-content: space-between;

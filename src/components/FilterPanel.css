@@ -1,0 +1,80 @@
+/* Filter Panel */
+.filter-panel {
+  flex: 0.3;
+  padding: 10px;
+}
+
+/* Input search */
+.input-search {
+  position: relative;
+  width: 100%;
+}
+
+.input-search input {
+  width: 100%;
+  padding: 8px 12px 8px 36px; /* chừa chỗ bên trái cho icon */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  background-color: #e0e0e0;
+}
+
+.input-search input:focus {
+  background-color: white;
+  border: 1px solid #ddd;
+  color: #616161;
+}
+
+.input-search .icon-search {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none; /* tránh ảnh hưởng khi click */
+}
+
+/* FILTER GRIDS */
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+.filter-item {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e0e0e0;
+  padding: 15px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: black;
+  cursor: pointer;
+}
+.filter-item:hover {
+  opacity: 0.7;
+}
+
+.filter-item.selected {
+  background-color: #0f548c;
+  color: white;
+}
+
+.filter-text {
+  font-size: 16px;
+}
+
+.filter-text img {
+  margin-bottom: 8px;
+}
+
+.filter-amount {
+  font-size: 24px;
+}
+.filter-text img {
+  width: 20px;
+}
