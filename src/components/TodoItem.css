@@ -1,0 +1,23 @@
+.todo-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.todo-itemContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todoItemHead {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.important-icon {
+  color: "#dca131";
+  font-size: 20px;
+}

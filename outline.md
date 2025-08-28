@@ -1,6 +1,6 @@
-# Delete Todo
+# Delete Todo - **Completed**
 
-# Undo deleted Todo list
+# Undo deleted Todo list - **Completed**
 
 # Add Category
 

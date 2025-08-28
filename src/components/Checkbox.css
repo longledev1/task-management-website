@@ -52,3 +52,7 @@
 .trash-icon:hover {
   color: #0f548c;
 }
+
+.trash-icon.open:hover {
+  color: white;
+}

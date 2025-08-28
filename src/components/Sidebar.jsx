@@ -1,19 +1,37 @@
+// Hooks
 import { useEffect, useRef, useState } from "react";
+
+// CSS
 import "./Sidebar.css";
 import "./Checkbox.css";
+
 // Toastify
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Sidebar = (props) => {
-  // Destructuring from props
-  const { todoItem, showSidebar, handleChangeItem, setShowSidebar, disabled } =
-    props;
+// Context
+import { useAppContext } from "../Context/AppProvider";
+
+// React Icon
+import { FaFlag } from "react-icons/fa";
+import { IoIosCheckbox } from "react-icons/io";
+
+const Sidebar = () => {
+  const {
+    todoItem,
+    showSidebar,
+    handleChangeItem,
+    setShowSidebar,
+    isDeletedView,
+    showNotification,
+    categories,
+  } = useAppContext();
 
   // State save value input
   const [name, setName] = useState("");
   const [isImportant, setIsImportant] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
+  const [category, setCategory] = useState();
 
   // re-render state
   useEffect(() => {
@@ -21,37 +39,24 @@ const Sidebar = (props) => {
       setName(todoItem.name);
       setIsImportant(todoItem.isImportant);
       setIsCompleted(todoItem.isCompleted);
+      setCategory(todoItem.category);
     }
   }, [todoItem]);
 
   // Input ref
   const inputRef = useRef(null);
 
-  // Function to show success
-  const showToastSuccess = () => {
-    toast.success("Completed to update Todo", {
-      style: { fontFamily: "Cabin, sans-serif" },
-    });
-  };
-
-  // Function to show error
-  const showToastError = () => {
-    toast.error("Please fill out this field", {
-      style: { fontFamily: "Cabin, sans-serif" },
-    });
-  };
-
   // Function handle to save Todo
   const handleSaveTodo = () => {
     if (!name.trim()) {
-      showToastError();
+      showNotification("Please fill out this field", false);
       inputRef.current.focus();
       return;
     }
-    const newTodo = { ...todoItem, name, isImportant, isCompleted };
+    const newTodo = { ...todoItem, name, isImportant, isCompleted, category };
     setShowSidebar(false);
     handleChangeItem(newTodo);
-    showToastSuccess();
+    showNotification("Updated Todo", true);
   };
 
   // Function handle close sidebar
@@ -62,7 +67,7 @@ const Sidebar = (props) => {
   return (
     <>
       <ToastContainer position="bottom-left" />
-      {!disabled && (
+      {!isDeletedView && (
         <div className={`sidebar ${showSidebar ? "open" : ""}`}>
           <form className="form" action="">
             <div className="sb-field-inputName">
@@ -77,8 +82,14 @@ const Sidebar = (props) => {
                 }}
               />
             </div>
+            <label className="status" htmlFor="">
+              Status
+            </label>
             <div className="sb-field-inputImportant">
-              <label htmlFor="sb-name">Is important ?</label>
+              <div className="sb-field-inputImportant-text">
+                <FaFlag className="important-icon"></FaFlag>
+                <label htmlFor="sb-name">Mark as important</label>
+              </div>
               <input
                 className="round-checkbox"
                 id="sb-important"
@@ -90,7 +101,10 @@ const Sidebar = (props) => {
               />
             </div>{" "}
             <div className="sb-field-inputComplete">
-              <label htmlFor="sb-name">Is complete ?</label>
+              <div className="sb-field-inputComplete-text">
+                <IoIosCheckbox className="complete-icon"></IoIosCheckbox>
+                <label htmlFor="sb-name">Mark as complete</label>
+              </div>
               <input
                 style={{ marginLeft: "4px" }}
                 className="round-checkbox"
@@ -101,6 +115,28 @@ const Sidebar = (props) => {
                   setIsCompleted(!isCompleted);
                 }}
               />
+            </div>
+            <div className="sb-field-inputCategory">
+              <label className="" htmlFor="">
+                Category
+              </label>
+              <br />
+              <div className="custom-select">
+                <select
+                  value={category}
+                  onChange={(e) => {
+                    setCategory(e.target.value);
+                  }}
+                >
+                  {categories.map((category) => {
+                    return (
+                      <option value={category.id} key={category.id}>
+                        {category.label}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
             </div>
           </form>
           <div className="sb-footer">

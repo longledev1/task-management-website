@@ -1,8 +1,17 @@
+// Hooks
 import { useMemo } from "react";
+
+// CSS
 import "./FilterPanel.css";
+
+// Component
 import FilterItemList from "./FilterItemList";
 import CategoryList from "./CategoryList";
-const FilterPanel = (props) => {
+
+// Context
+import { useAppContext } from "../Context/AppProvider";
+
+const FilterPanel = () => {
   // Filter items
   const FILTER_ITEMS = [
     {
@@ -27,32 +36,7 @@ const FilterPanel = (props) => {
     },
   ];
 
-  const CATEGORY_LIST = [
-    {
-      id: "personal",
-      label: "Personal",
-    },
-    {
-      id: "works",
-      label: "Works",
-    },
-    {
-      id: "travel",
-      label: "Travel",
-    },
-    {
-      id: "ideas",
-      label: "Ideas",
-    },
-  ];
-
-  const {
-    selectedFilterID,
-    setSelectedFilterID,
-    todoList,
-    searchTodo,
-    setSearchTodo,
-  } = props;
+  const { todoList, searchTodo, setSearchTodo } = useAppContext();
 
   const countFilterType = useMemo(() => {
     return todoList.reduce(
@@ -102,12 +86,11 @@ const FilterPanel = (props) => {
       <div className="filters-grid">
         <FilterItemList
           FILTER_ITEMS={FILTER_ITEMS}
-          selectedFilterID={selectedFilterID}
-          setSelectedFilterID={setSelectedFilterID}
           countFilterType={countFilterType}
         ></FilterItemList>
       </div>
-      <CategoryList CATEGORY_LIST={CATEGORY_LIST}></CategoryList>
+      {/* Category */}
+      <CategoryList todoList={todoList}></CategoryList>
     </div>
   );
 };

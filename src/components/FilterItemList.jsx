@@ -1,10 +1,13 @@
+import { useAppContext } from "../Context/AppProvider";
+
 const FilterItemList = (props) => {
+  const { FILTER_ITEMS, countFilterType } = props;
   const {
-    FILTER_ITEMS,
     selectedFilterID,
     setSelectedFilterID,
-    countFilterType,
-  } = props;
+    setShowSidebar,
+    setSelectTodoID,
+  } = useAppContext();
   return (
     <>
       {FILTER_ITEMS.map((filterItem) => {
@@ -16,6 +19,8 @@ const FilterItemList = (props) => {
             }`}
             onClick={() => {
               setSelectedFilterID(filterItem.id);
+              setShowSidebar(false);
+              setSelectTodoID(null);
             }}
           >
             <div className="filter-text">

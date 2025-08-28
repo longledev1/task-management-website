@@ -22,7 +22,13 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.status {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0f548c;
 }
 
 .sb-field-inputName label {
@@ -48,14 +54,24 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 10px;
-  color: #e9a300;
   background-color: white;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-weight: bold;
+  color: #616161;
+  margin-top: 5px;
+}
+
+.sb-field-inputImportant-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.important-icon {
+  color: #dca131;
 }
 
 .sb-field-inputComplete {
@@ -63,17 +79,105 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  font-size: 18px;
-  color: #2c9e2f;
+  font-size: 16px;
   background-color: white;
   padding: 10px;
   border-radius: 5px;
-  font-weight: bold;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  color: #616161;
+}
+
+.sb-field-inputComplete-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.complete-icon {
+  color: green;
+  font-size: 20px;
 }
 
 .form {
   padding: 10px;
+}
+
+.sb-field-inputCategory {
+}
+
+.sb-field-inputCategory label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0f548c;
+}
+
+.custom-select {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 40px;
+  z-index: 3;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+  appearance: none; /* ẩn arrow mặc định của select */
+}
+
+.custom-select:after {
+  content: "\25bc"; /* ▼ */
+  font-size: 14px;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  line-height: 40px; /* cùng chiều cao với select */
+  color: white;
+  background-color: #0f548c;
+  pointer-events: none; /* để click vào vẫn mở dropdown */
+}
+
+.custom-select option {
+  background: white;
+  color: #333;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+select {
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  z-index: 2;
+  padding: 0 10px;
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+}
+
+select:after {
+  content: "\25bc";
+  font-size: 25px;
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  top: 20px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .sb-footer {

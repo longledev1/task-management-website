@@ -16,10 +16,16 @@
   flex: 1;
 }
 
-.main-content h1 {
-  margin-bottom: 10px;
-  font-weight: 600;
+.category-label {
   font-size: 24px;
+  color: #0f548c;
+  font-weight: bold;
+}
+
+.heading-text {
+  font-size: 24px;
+  color: black;
+  font-weight: bold;
 }
 
 /* Input task */
@@ -38,6 +44,7 @@
   font-size: 16px;
 }
 .input-task {
+  margin-top: 10px;
   padding: 12px;
 }
 
