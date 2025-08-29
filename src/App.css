@@ -67,3 +67,16 @@
 .todo-item.open p {
   color: white;
 }
+
+.sort-todo {
+  width: 200px;
+  margin-left: auto;
+}
+
+.sort-todo select {
+  font-size: 14px;
+  border: 2px solid #0f548c;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+}

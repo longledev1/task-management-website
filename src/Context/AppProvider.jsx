@@ -53,6 +53,25 @@ const AppProvider = ({ children }) => {
     },
   ]);
 
+  // value sort
+  const itemSort = [
+    {
+      id: 1,
+      name: "Sort by all todo",
+    },
+    {
+      id: 2,
+      name: "Sort by important todo",
+    },
+
+    {
+      id: 3,
+      name: "Sort by completed todo",
+    },
+  ];
+
+  const [sortValue, setSortValue] = useState(1);
+
   // Sidebar open/close state
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -204,6 +223,10 @@ const AppProvider = ({ children }) => {
         handleDeleteCategory,
         categoryItem,
         handleUpdateCategory,
+        itemSort,
+        // selectValue,
+        sortValue,
+        setSortValue,
       }}
     >
       {children}

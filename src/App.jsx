@@ -23,6 +23,9 @@ function App() {
     isDeletedView,
     setIsDeletedView,
     categoryLabel,
+    itemSort,
+    sortValue,
+    setSortValue,
   } = useAppContext();
 
   // Input ref
@@ -50,7 +53,7 @@ function App() {
 
   // Todo map
   const filterTodo = useMemo(() => {
-    return todoList.filter((todo) => {
+    let result = todoList.filter((todo) => {
       if (!todo.name.includes(searchTodo)) {
         return false;
       }
@@ -70,7 +73,25 @@ function App() {
           return !todo.isDeleted;
       }
     });
-  }, [todoList, selectedFilterID, searchTodo, selectedCategoryID]);
+    switch (sortValue) {
+      case "1": // all todo (giữ nguyên)
+        return result;
+      case "2": // sort important
+        result = result.sort((a, b) => {
+          return b.isImportant - a.isImportant;
+        });
+        break;
+      case "3": // sort completed
+        result = result.sort((a, b) => {
+          return b.isCompleted - a.isCompleted;
+        });
+        break;
+      default:
+        break;
+    }
+
+    return result;
+  }, [todoList, selectedFilterID, searchTodo, selectedCategoryID, sortValue]);
 
   useEffect(() => {
     if (selectedFilterID === "deleted") {
@@ -101,6 +122,24 @@ function App() {
             categoryLabel ? `${categoryLabel} > ` : ""
           }`}</span>
           <span className="heading-text">{headingText}</span>
+        </div>
+        <div className="sort-todo">
+          <select
+            onChange={(e) => {
+              setSortValue(e.target.value);
+            }}
+            value={sortValue}
+            name=""
+            id=""
+          >
+            {itemSort.map((item) => {
+              return (
+                <option value={item.id} key={item.id}>
+                  {item.name}
+                </option>
+              );
+            })}
+          </select>
         </div>
         {isDeletedView ? (
           ""
