@@ -36,6 +36,13 @@ This project emphasizes clean UI, reusable components, and centralized state man
 - 🌐 **Context API** (global state management).
 - 🔑 **crypto.randomUUID()** for unique task IDs.
 
+#### 🎯 Future Improvements
+- 🔒 Integration with backend (Supabase/Firebase) for multi-device sync.
+- 🌙 Dark mode support.
+- 📅 Due date & reminders with calendar view.
+- 👥 Multi-user support with authentication.
+
+
 ---
 
 ## 🚦 Getting Started
@@ -60,9 +67,3 @@ cd todo-app
 npm install
 # or
 yarn install
-
-# 🎯 Future Improvements
-- 🔒 Integration with backend (Supabase/Firebase) for multi-device sync.
-- 🌙 Dark mode support.
-- 📅 Due date & reminders with calendar view.
-- 👥 Multi-user support with authentication.
