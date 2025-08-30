@@ -7,7 +7,7 @@ import FilterPanel from "./components/FilterPanel";
 import "./App.css";
 
 // Hooks
-import { useEffect, useMemo, useRef } from "react";
+import { Fragment, useEffect, useMemo, useRef } from "react";
 
 // Context
 import { useAppContext } from "./Context/AppProvider";
@@ -15,6 +15,7 @@ import { useAppContext } from "./Context/AppProvider";
 function App() {
   const {
     selectedCategoryID,
+    setSelectTodoID,
     todoList,
     setTodoList,
     searchTodo,
@@ -74,7 +75,7 @@ function App() {
       }
     });
     switch (sortValue) {
-      case "1": // all todo (giữ nguyên)
+      case "1": // all todo
         return result;
       case "2": // sort important
         result = result.sort((a, b) => {
@@ -124,22 +125,27 @@ function App() {
           <span className="heading-text">{headingText}</span>
         </div>
         <div className="sort-todo">
-          <select
-            onChange={(e) => {
-              setSortValue(e.target.value);
-            }}
-            value={sortValue}
-            name=""
-            id=""
-          >
-            {itemSort.map((item) => {
-              return (
-                <option value={item.id} key={item.id}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
+          {filterTodo.length > 0 ? (
+            <select
+              onChange={(e) => {
+                setSortValue(e.target.value);
+                setSelectTodoID(null);
+              }}
+              value={sortValue}
+              name=""
+              id=""
+            >
+              {itemSort.map((item) => {
+                return (
+                  <option value={item.id} key={item.id}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          ) : (
+            <Fragment></Fragment>
+          )}
         </div>
         {isDeletedView ? (
           ""

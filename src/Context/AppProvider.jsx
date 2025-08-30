@@ -17,36 +17,32 @@ const AppProvider = ({ children }) => {
   const [todoList, setTodoList] = useLocalStorage("todos", [
     {
       id: 1,
-      name: "Đi học thêm",
+      name: "Todo 1",
       isImportant: false,
-      isCompleted: true,
+      isCompleted: false,
       isDeleted: false,
       category: 1,
     },
     {
       id: 2,
-      name: "Đi học võ",
+      name: "Todo 2",
       isImportant: false,
       isCompleted: false,
       isDeleted: false,
-      category: 2,
+      category: 1,
     },
     {
       id: 3,
-      name: "Đi ngủ",
-      isImportant: true,
+      name: "Todo 3",
+      isImportant: false,
       isCompleted: false,
       isDeleted: false,
-      category: 2,
+      category: 1,
     },
   ]);
 
   // State Categories list
   const [categories, setCategories] = useLocalStorage("categories", [
-    {
-      id: 2,
-      label: "Personal",
-    },
     {
       id: 1,
       label: "Uncategorized",
@@ -224,7 +220,6 @@ const AppProvider = ({ children }) => {
         categoryItem,
         handleUpdateCategory,
         itemSort,
-        // selectValue,
         sortValue,
         setSortValue,
       }}
